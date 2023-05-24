@@ -28,6 +28,9 @@ jobs:
         name: Release ${{ steps.tag_version.outputs.new_tag }}
         body: ${{ steps.tag_version.outputs.changelog }}
         
+    outputs:
+        tag: ${{ steps.tag_version.outputs.new_tag }}
+        
   make-image-deploy:
     needs: setup-build-deploy
     name: image make build and deploy
@@ -39,4 +42,4 @@ jobs:
       
     steps:
     - name: Create a GitHub release
-      run: echo "The selected color is ${{ setup-build-deploy.steps.tag_version.outputs.new_tag }}"
+      run: echo "Tag name = ${{ needs.spin_up.outputs.tag }}"
