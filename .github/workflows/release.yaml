@@ -27,3 +27,11 @@ jobs:
         tag: ${{ steps.tag_version.outputs.new_tag }}
         name: Release ${{ steps.tag_version.outputs.new_tag }}
         body: ${{ steps.tag_version.outputs.changelog }}
+        
+  make-image-deploy:
+    name: image make build and deploy
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+      id-token: writ
