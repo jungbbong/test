@@ -42,4 +42,4 @@ jobs:
       
     steps:
     - name: Create a GitHub release
-      run: echo "Tag name = ${{ needs.spin_up.outputs.tag }}"
+      run: echo "Tag name = ${{ needs.setup-build-deploy.outputs.tag }}"
